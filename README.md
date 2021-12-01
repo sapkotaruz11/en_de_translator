@@ -1,2 +1,2 @@
 # en_de_translator
-English to Deutsch translator with frontend
+English to Deutsch translator and vice versa with frontend
