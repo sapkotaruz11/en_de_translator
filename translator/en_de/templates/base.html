@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Language Translation</title>
+        {% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+	<body>
+		<div style="margin:auto; max-width:50%">
+			
+			<h1 class="centering">English German Translation</h1>
+			<h2 class="centering"> Translate ENG to GER or GER to ENG</h2>
+
+			<form action ="translate" method="POST" class="example">
+			{% csrf_token %}
+			<select   class="form-select" aria-label="Default select example" name = "select">
+				<option selected>select one</option>
+				<option value="1">Ger to ENg</option>
+				<option value="2">Eng to Ger</option>
+			  </select>
+				<input type="text" placeholder="Type your Query " name="question"  required>
+				<button type="submit" value="Ask question">Translate</button>
+			</form>
+
+			<hr class="line">
+			{% if question %}
+				<p class="answers"> Translation of  "{{ question }}":</p>
+			{% endif %}
+
+			{% if answers %}
+				<p class="answers">{{ answers }}</p>
+			{% endif %}
+			{% comment %} {% if answers is defined and answers|length == 0 %}
+				<p class="answers">No answer found</p>
+			{% endif %} {% endcomment %}
+		</div>
+	</body>
+</html>
